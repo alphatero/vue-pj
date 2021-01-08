@@ -10,10 +10,10 @@ export default {
   data () {
     return {
       products: {
-        title: 'somewords',
-      },
-    };
-  },
+        title: 'somewords'
+      }
+    }
+  }
 }
 </script>
 
