@@ -1,21 +1,69 @@
 <template>
-  <div class="home">
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-  <div class="col-md-5 p-lg-5 mx-auto my-5">
-    <h1 class="display-4 font-weight-normal">Punny headline</h1>
-    <p class="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with this example based on Apple’s marketing pages.</p>
-    <a class="btn btn-outline-secondary" href="#">Coming soon</a>
-  </div>
-  <div class="product-device shadow-sm d-none d-md-block"></div>
-  <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-</div>
+  <div>
+    <div
+      class="position-relative overflow-hidden text-center bg-light all"
+    >
+      <swiper class="swiper h-100" :options="swiperOption">
+        <swiper-slide>Slide 1</swiper-slide>
+        <swiper-slide>Slide 2</swiper-slide>
+        <swiper-slide>Slide 3</swiper-slide>
+        <swiper-slide>Slide 4</swiper-slide>
+        <swiper-slide>Slide 5</swiper-slide>
+        <swiper-slide>Slide 6</swiper-slide>
+        <swiper-slide>Slide 7</swiper-slide>
+        <swiper-slide>Slide 8</swiper-slide>
+        <swiper-slide>Slide 9</swiper-slide>
+        <swiper-slide>Slide 10</swiper-slide>
+        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-next" slot="button-next"></div>
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+    </div>
   </div>
 </template>
 
 <script>
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import 'swiper/css/swiper.css'
 // @ is an alias to /src
 
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    swiper,
+    swiperSlide
+  },
+  data () {
+    return {
+      swiperOption: {
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        }
+      }
+    }
+  }
 }
 </script>
+<style>
+.all {
+  height: 300px;
+}
+.item {
+  height: 300px;
+  background-color: grey;
+}
+
+.item-center {
+  background-color: red;
+}
+
+.swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+}
+</style>
