@@ -1,21 +1,10 @@
 <template>
   <div>
-    <div
-      class="position-relative overflow-hidden text-center bg-light all"
-    >
+    <div class="position-relative overflow-hidden text-center bg-light all">
       <swiper class="swiper h-100" :options="swiperOption">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
+        <swiper-slide><img class="img-fluid" src="@/assets/swiper_1.jpg" alt=""></swiper-slide>
+        <swiper-slide id="i2"></swiper-slide>
         <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
-        <div class="swiper-button-prev" slot="button-prev"></div>
-        <div class="swiper-button-next" slot="button-next"></div>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
     </div>
@@ -36,9 +25,10 @@ export default {
   data () {
     return {
       swiperOption: {
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
+        effect: 'fade',
+        loop: true,
+        autoplay: {
+          delay: 3000
         },
         pagination: {
           el: '.swiper-pagination',
@@ -51,13 +41,18 @@ export default {
 </script>
 <style>
 .all {
-  height: 300px;
+  height:90vh;
 }
 .item {
-  height: 300px;
+  height: 100%;
   background-color: grey;
 }
 
+img {
+  object-fit: contain;
+  /* object-position: 50% 50%; default value: image is centered */
+  object-position: 0 0;
+}
 .item-center {
   background-color: red;
 }
@@ -65,5 +60,14 @@ export default {
 .swiper-pagination-bullet {
   width: 15px;
   height: 15px;
+  background: #fff;
+}
+
+#i2 {
+  background-image: url('../assets/swiper_1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
 </style>
