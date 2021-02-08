@@ -1,6 +1,6 @@
 <template>
   <div>
-    <loading :active.sync="isLoading" :loader="dots"></loading>
+    <loading :active.sync="isLoading"></loading>
     <div class="text-right mt-4">
       <button type="button" class="btn btn-primary" @click="openModal(true)">
         建立新產品
@@ -343,7 +343,7 @@ export default {
           console.log(response.data)
           vm.status.fileUploading = false
           if (response.data.success) {
-            // vm.tempProduct.imageUrl = response.data;
+            vm.tempProduct.imageUrl = response.data
             vm.$set(vm.tempProduct, 'imageUrl', response.data.imageUrl)
           } else {
             this.$bus.$emit('message:push', response.data.message, 'danger')
